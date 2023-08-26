@@ -1,4 +1,4 @@
-package com.example.money
+package com.example.money.navigation
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -6,11 +6,10 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.money.navigation.BottomBarScreen
 
 @Composable
 fun BottomBar(
@@ -29,17 +28,33 @@ fun BottomBar(
         listItems.forEach { item: BottomBarScreen ->
             BottomNavigationItem(
                 selected = currentRoute == item.route,
+                alwaysShowLabel = false,
                 onClick = {
-                    navController.navigate(item.route)
+                    navController.navigate(item.route) {
+                        // Pop up to the start destination of the graph to
+                        // avoid building up a large stack of destinations
+                        // on the back stack as users select items
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        // Avoid multiple copies of the same destination when
+                        // reselecting the same item
+                        launchSingleTop = true
+                        // Restore state when reselecting a previously selected item
+                        restoreState = true
+                    }
                 },
                 icon = {
-                    Icon(imageVector = item.icon, contentDescription = "icon")
+                    Icon(
+                        imageVector = if (item.route == currentRoute) {
+                            item.icon
+                        } else item.unselectedIcon,
+                        contentDescription = "icon"
+                    )
                 },
                 label = {
                     Text(text = item.title, fontSize = 9.sp)
                 },
-                selectedContentColor = Color.Red,
-                unselectedContentColor = Color.Gray
             )
         }
     }
