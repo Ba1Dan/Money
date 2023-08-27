@@ -4,18 +4,24 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
 import com.example.money.navigation.BottomBar
 import com.example.money.navigation.BottomNavGraph
 
 @Composable
 fun MainScreen() {
-    val navController = rememberNavController()
+    val appState = rememberJetsnackAppState()
 
     Scaffold(
-        bottomBar = { BottomBar(navController = navController) }
+        bottomBar = {
+            if (appState.shouldShowBottomBar) {
+                BottomBar(navController = appState.navController)
+            }
+        },
+        scaffoldState = appState.scaffoldState
     ) { padding ->
-        BottomNavGraph(navController = navController,  modifier = Modifier
-            .padding(padding))
+        BottomNavGraph(
+            navController = appState.navController, modifier = Modifier
+                .padding(padding)
+        )
     }
 }

@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.money.screens.category.presentation.CategoryScreen
 import com.example.money.screens.home.presentation.DetailWasteOfMoneyScreen
 import com.example.money.screens.home.presentation.HomeScreen
 import com.example.money.screens.profile.ProfileScreen
@@ -36,6 +37,14 @@ fun BottomNavGraph(
             viewModelStoreOwner = viewModelStoreOwner
         )
         detailScreen(
+            onBackClick = {
+                navController.popBackStack()
+            },
+            onNavigateCategory = { selectedCategoryId ->
+                navController.navigateToCategories(selectedCategoryId = selectedCategoryId)
+            }
+        )
+        categoriesScreen(
             onBackClick = {
                 navController.popBackStack()
             }
@@ -67,12 +76,28 @@ fun NavHostController.navigateToMovieDetails(id: String) {
     navigate("details/$id")
 }
 
+fun NavHostController.navigateToCategories(selectedCategoryId: Int) {
+    navigate("category/$selectedCategoryId")
+}
+
 fun NavGraphBuilder.detailScreen(
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onNavigateCategory: (categoryId: Int) -> Unit
 ) {
     composable(
         route = movieDetailsRoute,
     ) {
-        DetailWasteOfMoneyScreen(onBackClick = onBackClick)
+        DetailWasteOfMoneyScreen(onBackClick = onBackClick, onNavigateCategory = onNavigateCategory)
+    }
+}
+
+private const val categoryRoute: String = "category/{id}"
+fun NavGraphBuilder.categoriesScreen(
+    onBackClick: () -> Unit,
+) {
+    composable(
+        route = categoryRoute,
+    ) {
+        CategoryScreen(onBackClick = onBackClick)
     }
 }

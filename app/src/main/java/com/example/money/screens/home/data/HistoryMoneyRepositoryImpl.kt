@@ -35,7 +35,7 @@ class HistoryMoneyRepositoryImpl : HistoryMoneyRepository {
     )
 
     override suspend fun getHistory(): List<WasteOfMoney> {
-        delay(5000)
+        delay(3000)
         return history
     }
 }
