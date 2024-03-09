@@ -1,9 +1,10 @@
 package com.example.money.navigation
 
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import android.util.Log
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.sp
@@ -24,9 +25,9 @@ fun BottomBar(
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
-    BottomNavigation {
+    NavigationBar {
         listItems.forEach { item: BottomBarScreen ->
-            BottomNavigationItem(
+            NavigationBarItem(
                 selected = currentRoute == item.route,
                 alwaysShowLabel = false,
                 onClick = {

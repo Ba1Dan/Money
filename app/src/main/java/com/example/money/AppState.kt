@@ -1,8 +1,6 @@
 package com.example.money
 
 import android.content.res.Resources
-import androidx.compose.material.ScaffoldState
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
@@ -25,14 +23,14 @@ import kotlinx.coroutines.CoroutineScope
  */
 @Composable
 fun rememberJetsnackAppState(
-    scaffoldState: ScaffoldState = rememberScaffoldState(),
+//    scaffoldState: ScaffoldState = rememberScaffoldState(),
     navController: NavHostController = rememberNavController(),
 //    snackbarManager: SnackbarManager = SnackbarManager,
     resources: Resources = resources(),
     coroutineScope: CoroutineScope = rememberCoroutineScope()
 ) =
-    remember(scaffoldState, navController, resources, coroutineScope) {
-        AppState(scaffoldState, navController, resources, coroutineScope)
+    remember(navController, resources, coroutineScope) {
+        AppState(navController, resources, coroutineScope)
     }
 
 /**
@@ -40,7 +38,7 @@ fun rememberJetsnackAppState(
  */
 @Stable
 class AppState(
-    val scaffoldState: ScaffoldState,
+//    val scaffoldState: ScaffoldState,
     val navController: NavHostController,
     private val resources: Resources,
     coroutineScope: CoroutineScope
