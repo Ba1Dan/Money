@@ -59,7 +59,7 @@ fun BottomNavGraph(
 }
 
 fun NavGraphBuilder.homeScreen(
-    navigateToDetail: (String) -> Unit,
+    navigateToDetail: (Int) -> Unit,
     viewModelStoreOwner: ViewModelStoreOwner,
 ) {
     composable(route = BottomBarScreen.Home.route) {
@@ -72,7 +72,7 @@ fun NavGraphBuilder.homeScreen(
 
 private const val movieDetailsRoute: String = "details/{id}"
 
-fun NavHostController.navigateToMovieDetails(id: String) {
+fun NavHostController.navigateToMovieDetails(id: Int) {
     navigate("details/$id")
 }
 

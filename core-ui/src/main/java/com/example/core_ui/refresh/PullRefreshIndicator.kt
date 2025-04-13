@@ -62,7 +62,6 @@ fun PullRefreshIndicator(
     // (possibly) interactive content.
     val elevationOverlay = DefaultElevationOverlay
     val color = DefaultElevationOverlay.apply(color = backgroundColor, elevation = Elevation)
-        ?: backgroundColor
 
     Box(
         modifier = modifier

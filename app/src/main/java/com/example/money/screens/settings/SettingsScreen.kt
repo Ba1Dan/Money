@@ -20,7 +20,7 @@ fun SettingsScreen() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "HOME",
+            text = "SettingsScreen",
             fontWeight = FontWeight.Bold,
             color = Color.White
         )

@@ -22,7 +22,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen(
-    navigateToDetail: (String) -> Unit,
+    navigateToDetail: (Int) -> Unit,
     viewModel: HomeViewModel = koinViewModel(),
 ) {
     val homeUiState: HomeUiState by viewModel.homeScreenState.collectAsStateWithLifecycle()
@@ -31,7 +31,7 @@ fun HomeScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    navigateToDetail.invoke("detail")
+                    navigateToDetail.invoke(-1)
                 },
             ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add waste")
@@ -72,14 +72,17 @@ fun HomeScreen(
 
 @Composable
 fun HomeContent(
-    navigateToDetail: (String) -> Unit,
+    navigateToDetail: (Int) -> Unit,
     homeUiState: HomeUiState.Content
 ) {
     val items = homeUiState.items
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(items, itemContent = { item ->
-            WasteItem(item = item, navigateToDetail = navigateToDetail)
-        })
+        items(
+            items,
+            itemContent = { item ->
+                WasteItem(item = item, navigateToDetail = navigateToDetail)
+            }
+        )
     }
 }
 
