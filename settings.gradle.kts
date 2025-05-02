@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         google()
@@ -13,6 +15,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Money"
-include ':app'
-include ':core-ui'
-include ':profile'
+include(":app")
+include(":core-ui")
+include(":features:profile")
