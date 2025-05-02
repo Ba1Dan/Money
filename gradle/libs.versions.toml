@@ -1,0 +1,405 @@
+# https://docs.gradle.org/7.2/userguide/platforms.html#sub::toml-dependencies-format
+
+[versions]
+android_gradle_plugin = "8.9.1" # update with android_gradle_tools_common
+android_gradle_tools = "31.9.1" # android_gradle_plugin + 23.0.0
+java = "17"
+kotlin = "2.0.21"
+ksp = "2.0.21-1.0.28"
+guava_android = "33.3.1-android" # https://github.com/google/guava/releases
+kotlinx_serialization = "1.7.3" # https://github.com/Kotlin/kotlinx.serialization/releases
+kotlinx_coroutines = "1.9.0" # https://github.com/Kotlin/kotlinx.coroutines/releases
+kotlinx_immutable = "0.3.5" # https://github.com/Kotlin/kotlinx.collections.immutable
+junit_plugin = "1.0.0"
+compose_accompanist = "0.34.0"
+androidx_ktx_core = "1.9.0"
+androidx_fragment = "1.8.3"
+androidx_lifecycle = "2.7.0"
+androidx_benchmark = "1.2.4"
+androidx_profileinstaller = "1.3.1"
+androidx_tracing = "1.3.0"
+androidx_tracing_perfetto = "1.0.0"
+coil = "2.7.0"
+androidx_camerax = "1.3.4" # обновлено до 1.3.4 по требованиям библиотеки MTS BIO SDK 3.3.2
+androidx_camerax_view = "1.3.4" # обновлено до 1.3.4 по требованиям библиотеки MTS BIO SDK 3.3.2
+androidx_media3 = "1.4.0"
+kotest = "5.5.2"
+material = "1.5.0"
+androidx_room = "2.6.0"
+androidx_test = "1.5.0"
+androidx_test_orchestrator = "1.4.2"
+androidx_test_runner = "1.5.2"
+androidx_test_junit = "1.1.5"
+androidx_test_truth = "1.5.0"
+espresso = "3.5.1"
+processPhoenix = "3.0.0"
+toothpick = "3.1.0"
+toothpick_ksp = "v1.1.0"
+play_services = "17.0.0"
+leakcanary = "2.10"
+okhttp = "4.12.0"
+ktor = "3.0.3"
+grpc_protobuf = "1.68.3"
+grpc_kotlin_stub = "1.3.0"
+protoc_gen_grpc_java = "1.60.0"
+protoc_gen_grpc_kotlin = "1.4.1"
+protoc = "3.25.1"
+cronet = "119.6045.31"
+cronet_okhttp = "0.1.0"
+hyperion = "0.9.38"
+chucker = "3.5.2"
+spek = "2.0.14"
+mockk = "1.13.13" # https://github.com/mockk/mockk/releases
+detekt = "1.23.7"
+detekt_compose_version = "0.4.10"
+kaspresso = "1.6.0"
+insetter = "0.6.1"
+concurrent_futures = "1.1.0"
+triplet_publisher = "3.8.4"
+galaxy_store_publisher = "1.0.0-alpha03"
+paging = "3.2.1"
+retrofit = "2.11.0"
+roborazzi = "1.16.1"
+talaiot = "2.0.6"
+design_system = "5.1.0"
+spdelegates = "1.0.1"
+astro = "0.6.8"
+google_mlkit_barcode_scanning = "17.3.0"
+sentry_android = "7.18.1" # https://github.com/getsentry/sentry-java/releases
+sentry_plugin = "4.12.0" # https://github.com/getsentry/sentry-android-gradle-plugin/releases
+mts_bio = "3.4.12"
+featureDeliveryKtx = "2.1.0"
+jsonpath = "2.9.0"
+dependency_analytics = "2.14.0"
+byteweaver = "1.1.0"
+
+[libraries]
+# plugins
+plugin_android = { module = "com.android.tools.build:gradle", version.ref = "android_gradle_plugin" }
+plugin_kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin_ksp = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin", version.ref = "ksp" }
+plugin_junit = { module = "org.junit.platform:junit-platform-gradle-plugin", version.ref = "junit_plugin" }
+plugin_kotlinx_serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+plugin_firebase_crashlytics = { module = "com.google.firebase:firebase-crashlytics-gradle", version = "2.9.9" }
+plugin_firebase_perf = { module = "com.google.firebase:perf-plugin", version = "1.4.2" }
+plugin_google_services = "com.google.gms:google-services:4.3.14"
+plugin_detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+plugin_triple_play_publisher = { module = "com.github.triplet.gradle:play-publisher", version.ref = "triplet_publisher" }
+plugin_triple_android_publisher = { module = "com.github.triplet.gradle:android-publisher", version.ref = "triplet_publisher" }
+plugin_galaxy_store_publisher = { module = "com.sergei-lapin.galaxy-store-publisher:plugin", version.ref = "galaxy_store_publisher" }
+plugin_openapi_generator = "org.openapitools:openapi-generator-gradle-plugin:6.6.0"
+plugin_talaiot_influxdb2 = { module = "io.github.cdsap.talaiot.plugin:influxdb2-plugin", version.ref = "talaiot" }
+plugin_kover = { module = "org.jetbrains.kotlinx.kover:org.jetbrains.kotlinx.kover.gradle.plugin", version = "0.7.5" }
+plugin_roborazzi = { module = "io.github.takahirom.roborazzi:io.github.takahirom.roborazzi.gradle.plugin", version.ref = "roborazzi" }
+plugin_avito_build_verdict = { module = "com.avito.android:build-verdict", version = "2024.32" }
+plugin_dependency_analysis = { group = "com.autonomousapps.dependency-analysis", name = "com.autonomousapps.dependency-analysis.gradle.plugin", version.ref = "dependency_analytics" }
+
+# android gradle plugin libs
+android-tools-common = { module = "com.android.tools:common", version.ref = "android_gradle_tools" }
+android-tools-sdk-common = { module = "com.android.tools:sdk-common", version.ref = "android_gradle_tools" }
+
+# kotlin
+kotlin_stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin_parcelable_runtime = { module = "org.jetbrains.kotlin:kotlin-parcelize-runtime", version.ref = "kotlin" }
+kotlin_test_junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kotlin_reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlinx_extensions_runtime = { module = "org.jetbrains.kotlin:kotlin-android-extensions-runtime", version.ref = "kotlin" }
+kotlinx_immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinx_immutable" }
+kotlinx_serialization_runtime = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx_serialization" }
+kotlinx_serialization_proto = { module = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf", version.ref = "kotlinx_serialization" }
+kotlinx_serialization_json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx_serialization" }
+json_diff = "io.github.deblockt:json-diff:1.1.0"
+# guava
+guava_android = { module = "com.google.guava:guava", version.ref = "guava_android" }
+
+# libs
+dropbox_store = "com.dropbox.mobile.store:store4:4.0.4-KT15"
+android_maps_utils = "com.google.maps.android:android-maps-utils:3.8.0"
+process-phoenix = { module = "com.jakewharton:process-phoenix", version.ref = "processPhoenix" }
+shortcutbadger = "me.leolin:ShortcutBadger:1.1.22"
+cicerone = "com.github.terrakok:cicerone:7.1"
+javax_inject = "javax.inject:javax.inject:1"
+biometric = "androidx.biometric:biometric:1.1.0"
+disklrucache = "com.jakewharton:disklrucache:2.0.2"
+emvnfccard = "com.github.devnied.emvnfccard:library:3.0.1"
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit_scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
+retrofit_serialization = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
+youtube_player = "com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0"
+mp4composer = "com.github.MasayukiSuda:Mp4Composer-android:v0.4.1"
+lazysodium = "com.goterl:lazysodium-android:5.1.0"
+# Версия специально не последняя: пытаемся избежать крэша Lazy Sodium
+# https://github.com/terl/lazysodium-android/issues/15
+jna = "net.java.dev.jna:jna:5.8.0"
+security_crypto = "androidx.security:security-crypto-ktx:1.1.0-alpha06"
+qr_generator = "com.github.androidmads:QRGenerator:1.0.1"
+sqlite_dbstat = "com.github.romansl:sqlite-android:3.45.0-dbstat"
+ar_core = "com.google.ar:core:1.36.0"
+
+# libs for mts biometry sdk
+gson = "com.google.code.gson:gson:2.10.1"
+retrofit_gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+timber = "com.jakewharton.timber:timber:5.0.1"
+mlkit = "com.google.mlkit:face-detection:16.1.6"
+# Нужна именно версия TFLite 0.4.3 в рамках последних исправлений МТС СДК (3.3.2a) - об этом сообщили партнеры из МТС
+tensor_flow_lite_support = "org.tensorflow:tensorflow-lite-support:0.4.3"
+renderscript-intristics-replacement-toolkit = "com.github.android:renderscript-intrinsics-replacement-toolkit:b6363490c3"
+exifinterface = "androidx.exifinterface:exifinterface:1.3.3"
+kotlin_stdlib_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.21"
+
+# debug tools
+hyperion_core = { module = "com.willowtreeapps.hyperion:hyperion-core", version.ref = "hyperion" }
+hyperion_attr = { module = "com.willowtreeapps.hyperion:hyperion-attr", version.ref = "hyperion" }
+hyperion_build_conf = { module = "com.willowtreeapps.hyperion:hyperion-build-config", version.ref = "hyperion" }
+hyperion_measurement = { module = "com.willowtreeapps.hyperion:hyperion-measurement", version.ref = "hyperion" }
+hyperion_prefs = { module = "com.willowtreeapps.hyperion:hyperion-shared-preferences", version.ref = "hyperion" }
+hyperion_crash = { module = "com.willowtreeapps.hyperion:hyperion-crash", version.ref = "hyperion" }
+chucker_debug = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
+chucker_noop = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
+
+# leak canary
+leakcanary_android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
+leakcanary_android_watcher = { module = "com.squareup.leakcanary:leakcanary-object-watcher-android", version.ref = "leakcanary" }
+leakcanary_android_instrumentation = { module = "com.squareup.leakcanary:leakcanary-android-instrumentation", version.ref = "leakcanary" }
+
+# okhttp
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp_coroutines = "ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0"
+okhttp_logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+okio = "com.squareup.okio:okio:3.6.0"
+okhttp_mock_web_server = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+dns_java = "dnsjava:dnsjava:3.3.1" # поднимать версию с осторожностью, тк может крашить на 7-8 андроиде. ANDR-33450
+
+#grpc
+grpc-okhttp = { group = "io.grpc", name = "grpc-okhttp", version.ref = "grpc_protobuf" }
+grpc-android = { group = "io.grpc", name = "grpc-android", version.ref = "grpc_protobuf" }
+grpc-protobuf-lite = { group = "io.grpc", name = "grpc-protobuf-lite", version.ref = "grpc_protobuf" }
+grpc-kotlin-stub = { group = "io.grpc", name = "grpc-kotlin-stub", version.ref = "grpc_kotlin_stub" }
+protoc-gen-grpc-java = { module = " io.grpc:protoc-gen-grpc-java", version.ref = "protoc_gen_grpc_java" }
+protoc-gen-grpc-kotlin = { module = "io.grpc:protoc-gen-grpc-kotlin", version.ref = "protoc_gen_grpc_kotlin" }
+protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
+
+# cronet
+cronet_api = { module = "org.chromium.net:cronet-api", version.ref = "cronet" }
+cronet_common = { module = "org.chromium.net:cronet-common", version.ref = "cronet" }
+cronet_embedded = { module = "org.chromium.net:cronet-embedded", version.ref = "cronet" }
+cronet_okhttp = { module = "com.google.net.cronet:cronet-okhttp", version.ref = "cronet_okhttp" }
+
+# play services
+play_services_gcm = { module = "com.google.android.gms:play-services-gcm", version.ref = "play_services" }
+play_services_location = { module = "com.google.android.gms:play-services-location", version.ref = "play_services" }
+play_services_cronet = { module = "com.google.android.gms:play-services-cronet", version.ref = "play_services" }
+play_services_maps = "com.google.android.gms:play-services-maps:19.0.0"
+play_services_auth = "com.google.android.gms:play-services-auth:21.2.0"
+play_services_auth_api_phone = "com.google.android.gms:play-services-auth-api-phone:18.1.0"
+play_services_code_scanner = "com.google.android.gms:play-services-code-scanner:16.1.0"
+
+play_review = { module = "com.google.android.play:review-ktx", version = "2.0.1" }
+
+# toothpick
+toothpick_smoothie = { module = "com.github.stephanenicolas.toothpick:smoothie-androidx", version.ref = "toothpick" }
+toothpick_compiler = { module = "com.github.bedrockstreaming.toothpick-ksp:compiler", version.ref = "toothpick_ksp" }
+toothpick_runtime = { module = "com.github.stephanenicolas.toothpick:ktp", version.ref = "toothpick" }
+toothpick_testing_junit4 = { module = "com.github.stephanenicolas.toothpick:toothpick-testing-junit4", version.ref = "toothpick" }
+
+# coil
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil_video = { module = "io.coil-kt:coil-video", version.ref = "coil" }
+
+# camerax
+camerax = { module = "androidx.camera:camera-camera2", version.ref = "androidx_camerax" }
+camerax_lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "androidx_camerax" }
+camerax_view = { module = "androidx.camera:camera-view", version.ref = "androidx_camerax_view" }
+
+# androidx
+androidx_benchmark_micro_junit4 = { group = "androidx.benchmark", name = "benchmark-junit4", version.ref = "androidx_benchmark" }
+androidx_benchmark_macro_junit4 = { module = "androidx.benchmark:benchmark-macro-junit4", version.ref = "androidx_benchmark" }
+androidx_profileinstaller = { module = "androidx.profileinstaller:profileinstaller", version.ref = "androidx_profileinstaller" }
+androidx_tracing = { module = "androidx.tracing:tracing", version.ref = "androidx_tracing" }
+androidx_tracing_perfetto = { module = "androidx.tracing:tracing-perfetto-binary", version.ref = "androidx_tracing_perfetto" }
+android_desugar = "com.android.tools:desugar_jdk_libs:2.0.4"
+androidx_window = "androidx.window:window:1.0.0"
+androidx_startup = "androidx.startup:startup-runtime:1.2.0"
+androidx_fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx_fragment" }
+androidx_fragment_testing = { module = "androidx.fragment:fragment-testing", version.ref = "androidx_fragment" }
+androidx_fragment_compose = { module = "androidx.fragment:fragment-compose", version.ref = "androidx_fragment" }
+androidx_ktx_core = { module = "androidx.core:core-ktx", version.ref = "androidx_ktx_core" }
+androidx_ktx_activity = "androidx.activity:activity-ktx:1.3.0"
+androidx_ktx_collection = "androidx.collection:collection-ktx:1.4.0"
+androidx_ktx_room = { module = "androidx.room:room-ktx", version.ref = "androidx_room" }
+androidx_ktx_workmanager = "androidx.work:work-runtime-ktx:2.10.0-beta01"
+androidx_appcompat = "androidx.appcompat:appcompat:1.4.2"
+androidx_cardview = "androidx.cardview:cardview:1.0.0"
+androidx_collection = "androidx.collection:collection:1.4.4"
+androidx_gridlayout = "androidx.gridlayout:gridlayout:1.0.0"
+androidx_annotation = "androidx.annotation:annotation:1.7.1"
+androidx_room_runtime = { module = "androidx.room:room-runtime", version.ref = "androidx_room" }
+androidx_room_compiler = { module = "androidx.room:room-compiler", version.ref = "androidx_room" }
+androidx_room_test = { module = "androidx.room:room-testing", version.ref = "androidx_room" }
+androidx_room_paging = { module = "androidx.room:room-paging", version.ref = "androidx_room" }
+constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+androidx_recyclerview = "androidx.recyclerview:recyclerview:1.3.1"
+androidx_swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha03"
+androidx_test_uiautomator = "androidx.test.uiautomator:uiautomator:2.3.0"
+androidx_test_core = { module = "androidx.test:core", version.ref = "androidx_test" }
+androidx_test_runner = { module = "androidx.test:runner", version.ref = "androidx_test_runner" }
+androidx_test_rules = { module = "androidx.test:rules", version.ref = "androidx_test" }
+androidx_test_junit = { module = "androidx.test.ext:junit", version.ref = "androidx_test_junit" }
+androidx_test_junit_ktx = { module = "androidx.test.ext:junit-ktx", version.ref = "androidx_test_junit" }
+androidx_test_truth = { module = "androidx.test.ext:truth", version.ref = "androidx_test_truth" }
+androidx_test_orchestrator = { module = "androidx.test:orchestrator", version.ref = "androidx_test_orchestrator" }
+androidx_test_services = "androidx.test.services:test-services:1.4.2"
+datastore = "androidx.datastore:datastore:1.0.0"
+datastore_preferences = "androidx.datastore:datastore-preferences:1.0.0"
+androidx_transition = "androidx.transition:transition:1.3.0"
+androidx_arch_core_runtime = "androidx.arch.core:core-runtime:2.1.0"
+androidx_concurrent_futures = { module = "androidx.concurrent:concurrent-futures-ktx", version.ref = "concurrent_futures" }
+androidx_paging = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
+
+# huawei
+huawei_location = { module = "com.huawei.hms:location", version = "6.9.0.300" }
+huawei_maps = { module = "com.huawei.hms:maps", version = "6.10.1.300" }
+huawei_agconnect_push = { module = "com.huawei.hms:push", version = "6.10.0.300" }
+huawei_agconnect_core = { module = "com.huawei.agconnect:agconnect-core", version = "1.9.0.300" }
+huawei_agconnect = { module = "com.huawei.agconnect:agcp", version = "1.9.0.300" }
+
+# rustore
+# У рустора есть зависимость на ok.tracer. При поднятии версии нужно проверять версию tracer. Смотри pom'ы:
+# https://artifactory-external.vkpartner.ru/ui/repos/tree/General/rustore-maven/ru/rustore/sdk/pushclient
+rustore_sdk_bom = "ru.rustore.sdk:bom:7.0.0"
+rustore_sdk_pushclient = "ru.rustore.sdk:pushclient:6.9.1"
+rustore_sdk_review = { module = "ru.rustore.sdk:review" }
+
+# compose
+androidx_compose_bom = "androidx.compose:compose-bom:2024.10.01"
+androidx_compose_ui = { module = "androidx.compose.ui:ui" }
+androidx_compose_ui_tools = { module = "androidx.compose.ui:ui-tooling" }
+androidx_compose_ui_tools_preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx_compose_ui_utils = { module = "androidx.compose.ui:ui-util" }
+androidx_compose_foundation = { module = "androidx.compose.foundation:foundation" }
+androidx_compose_material = { module = "androidx.compose.material:material" }
+androidx_compose_material3 = { module = "androidx.compose.material3:material3" }
+androidx_compose_material_ic_core = { module = "androidx.compose.material:material-icons-core" }
+androidx_compose_material_ic_ext = { module = "androidx.compose.material:material-icons-extended" }
+androidx_compose_animation = { module = "androidx.compose.animation:animation" }
+androidx_compose_runtime = { module = "androidx.compose.runtime:runtime" }
+androidx_compose_runtime_tracing = { module = "androidx.compose.runtime:runtime-tracing" }
+androidx_activity_compose = { module = "androidx.activity:activity-compose", version = "1.9.3" }
+
+# test-fixtures
+# это версия-костыль: требуется вручную указывать зависимость для compose-runtime,
+# тк compose используется в модуле app - https://youtrack.jetbrains.com/issue/KT-69973
+# При этом, почему-то версию нужно указывать явно, из-за чего androidx_compose_runtime не подходит
+testfixtures_compose_runtime = { module = "androidx.compose.runtime:runtime", version = "1.7.1" }
+
+# lifecycle
+androidx_lifecycle_common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "androidx_lifecycle" }
+androidx_lifecycle_runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx_lifecycle" }
+androidx_lifecycle_runtime_testing = { module = "androidx.lifecycle:lifecycle-runtime-testing", version.ref = "androidx_lifecycle" }
+androidx_lifecycle_livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "androidx_lifecycle" }
+androidx_lifecycle_process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "androidx_lifecycle" }
+androidx_lifecycle_viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx_lifecycle" }
+androidx_lifecycle_viewmodel_compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx_lifecycle" }
+androidx_lifecycle_runtime_compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx_lifecycle" }
+
+# compose libs
+compose_pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "compose_accompanist" } # Deprecated c compose_foundation 1.4.0
+compose_pager_indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "compose_accompanist" }
+compose_flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "compose_accompanist" } # soon to be deprecated
+compose_swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "compose_accompanist" } # Deprecated c compose_material 1.3.0
+compose_systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "compose_accompanist" }
+compose_ratingbar = "io.github.a914-gowtham:compose-ratingbar:1.1.0"
+compose_coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+compose_shimmer = "com.valentinilk.shimmer:compose-shimmer:1.0.2"
+compose_constraint = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+android_expandablelayout = "com.github.josinSbazin:android_ExpandableLayout:0.7"
+compose_lottie = "com.airbnb.android:lottie-compose:5.2.0"
+compose_paging = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+compose_reorderable = "org.burnoutcrew.composereorderable:reorderable:0.9.6"
+
+# ui
+material = { module = "com.google.android.material:material", version.ref = "material" }
+adapter_delegates = "com.hannesdorfmann:adapterdelegates4:4.0.0"
+materialrangebar = "com.appyvet:materialrangebar:1.4.8"
+loopingviewpager = "com.asksira.android:loopingviewpager:1.2.0" # Не обновлять до 1.3.2 т.к. там нельзя наследоваться от LoopingViewPager
+android_weak_handler = "com.github.badoo:android-weak-handler:1.3"
+photoview = "com.github.chrisbanes:PhotoView:2.3.0"
+spinnerdatepicker = "com.github.drawers:SpinnerDatePicker:2.0.1"
+flexbox = "com.google.android:flexbox:1.1.0"
+expandablerecyclerview = "com.github.tank777.expandable-recycler-view:expandablerecyclerview:1.6"
+decoro = "ru.tinkoff.decoro:decoro:1.5.1"
+scrollingpagerindicator = "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.5"
+materialtaptargetprompt = "uk.co.samuelwall:material-tap-target-prompt:3.1.1"
+lottie = "com.airbnb.android:lottie:3.4.2"
+cropper = "com.theartofdev.edmodo:android-image-cropper:2.8.0"
+splitties = "com.louiscad.splitties:splitties-alertdialog-appcompat:3.0.0-alpha06"
+keyboard_visibility = "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.3.0"
+materialratingbar = "me.zhanghai.android.materialratingbar:library:1.4.0"
+insetter = { module = "dev.chrisbanes.insetter:insetter", version.ref = "insetter" }
+
+# firebase
+firebase_bom = "com.google.firebase:firebase-bom:33.0.0"
+firebase_messaging = { module = "com.google.firebase:firebase-messaging-ktx" }
+firebase_perf = { module = "com.google.firebase:firebase-perf-ktx" }
+firebase_crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+
+# kotlinx.coroutines
+kotlinx_coroutines_android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx_coroutines" }
+kotlinx_coroutines_core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx_coroutines" }
+kotlinx_coroutines_tasks = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinx_coroutines" }
+kotlinx_coroutines_guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", version.ref = "kotlinx_coroutines" }
+kotlinx_coroutines_test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx_coroutines" }
+turbine = "app.cash.turbine:turbine:0.12.1"
+
+kotlin_html = "org.jetbrains.kotlinx:kotlinx-html-jvm:0.8.0"
+
+# junit5
+junit5_bom = "org.junit:junit-bom:5.8.2"
+junit5_jupiter = { module = "org.junit.jupiter:junit-jupiter-engine" }
+junit5_vintage = { module = "org.junit.vintage:junit-vintage-engine" }
+junit5_params = { module = "org.junit.jupiter:junit-jupiter-params" }
+junit5_api = { module = "org.junit.jupiter:junit-jupiter-api" }
+
+# mockk
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk_agent = { module = "io.mockk:mockk-agent-jvm", version.ref = "mockk" }
+mockk_android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
+mockk_android_agent = { module = "io.mockk:mockk-agent-android", version.ref = "mockk" }
+coil_test = { module = "io.coil-kt:coil-test", version.ref = "coil" }
+
+# unit tests
+junit = "junit:junit:4.12"
+kluent = "org.amshove.kluent:kluent:1.65"
+
+# roborazzi
+roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", version.ref = "roborazzi" }
+roborazzi_compose = { group = "io.github.takahirom.roborazzi", name = "roborazzi-compose", version.ref = "roborazzi" }
+roborazzi_rule = { group = "io.github.takahirom.roborazzi", name = "roborazzi-junit-rule", version.ref = "roborazzi" }
+
+# ktor
+ktor = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor_http = { module = "io.ktor:ktor-http", version.ref = "ktor" }
+ktor_util = { module = "io.ktor:ktor-utils", version.ref = "ktor" }
+
+#talaiot
+talaiot = { module = "io.github.cdsap.talaiot:talaiot", version.ref = "talaiot" }
+talaiot_influxdb2_publisher = { module = "io.github.cdsap.talaiot:influxdb2-publisher", version.ref = "talaiot" }
+
+# detekt
+detekt_api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "detekt" }
+detekt_test = { module = "io.gitlab.arturbosch.detekt:detekt-test", version.ref = "detekt" }
+detekt_cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = "detekt" }
+detekt_formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt_compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detekt_compose_version" }
+detekt_gitlab_report = { module = "com.gitlab.cromefire:detekt-gitlab-report", version = "0.2.2" }
+
+[plugins]
+compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+baselineprofile = { id = "androidx.baselineprofile", version.ref = "androidx_benchmark" }
+benchmark = { id = "androidx.benchmark", version.ref = "androidx_benchmark" }
+pluginPublish = { id = "com.gradle.plugin-publish", version = "1.2.1" }
+byteweaver = { id = "ru.ok.byteweaver", version.ref = "byteweaver" }
+# Эти плагины почему-то не ищутся в каталогах и обязательно хотят быть прописанными в classpath
+# https://firebase.google.com/docs/perf-mon/get-started-android?hl=en#add-perfmon-plugin
+#firebase_crashlytics = { id = "com.google.firebase.crashlytics", version = "2.8.0" }
+#firebase_perf = { id = "com.google.firebase.firebase-perf", version = "1.4.0" }
