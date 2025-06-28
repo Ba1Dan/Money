@@ -7,8 +7,6 @@ plugins {
 }
 
 subprojects {
-    apply("io.gitlab.arturbosch.detekt")
-
     detekt {
         buildUponDefaultConfig = false // preconfigure defaults
         allRules = false // activate all available (even unstable) rules.

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DetektPluginSettings">
+    <option name="baselinePath" value="$PROJECT_DIR$/codequality/detekt/baseline.xml" />
+    <option name="configurationFilePaths">
+      <set>
+        <option value="$PROJECT_DIR$/codequality/detekt/detekt.yml" />
+      </set>
+    </option>
+    <option name="configurationFiles">
+      <list>
+        <option value="$PROJECT_DIR$/codequality/detekt/detekt.yml" />
+      </list>
+    </option>
+    <option name="enableDetekt" value="true" />
+    <option name="enableForProjectResult" value="Accepted" />
+  </component>
+</project>
