@@ -39,7 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import com.example.core_ui.theme.MoneyMaterialTheme
+import com.example.ds.theme.MoneyMaterialTheme
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {

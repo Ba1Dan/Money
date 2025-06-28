@@ -16,5 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Money"
 include(":app")
-include(":core-ui")
+include(":ds")
 include(":features:profile")

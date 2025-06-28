@@ -1,4 +1,4 @@
-package com.example.core_ui.theme
+package com.example.ds.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -27,7 +27,7 @@ fun MoneyMaterialTheme(
 
 
 object MoneyMaterialTheme {
-    val typography: WbMoneyTypography
+    val typography: MoneyTypography
         @Composable
         get() = LocalMoneyTypography.current
 }
