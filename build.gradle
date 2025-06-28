@@ -3,4 +3,23 @@ plugins {
     id 'com.android.application' version '8.2.0' apply false
     id 'com.android.library' version '8.2.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+    id 'io.gitlab.arturbosch.detekt' version '1.23.5'
+}
+
+subprojects {
+    apply("io.gitlab.arturbosch.detekt")
+
+    detekt {
+        buildUponDefaultConfig = false // preconfigure defaults
+        allRules = false // activate all available (even unstable) rules.
+        config.setFrom("$rootDir/codequality/detekt.yml")
+
+        reports {
+            html.required.set(true) // observe findings in your browser with structure and code snippets
+            xml.required.set(false) // checkstyle like format mainly for integrations like Jenkins
+            txt.required.set(false) // similar to the console output, contains issue signature to manually edit baseline files
+            sarif.required.set(false) // standardized SARIF format (https://sarifweb.azurewebsites.net/) to support integrations with GitHub Code Scanning
+            md.required.set(false) // simple Markdown format
+        }
+    }
 }
