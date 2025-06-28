@@ -1,4 +1,4 @@
-package com.example.money.screens
+package com.example.money.screens.settings
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -20,7 +20,7 @@ fun SettingsScreen() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "HOME",
+            text = "SettingsScreen",
             fontWeight = FontWeight.Bold,
             color = Color.White
         )

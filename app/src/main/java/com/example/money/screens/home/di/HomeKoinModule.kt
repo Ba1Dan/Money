@@ -1,4 +1,4 @@
-package com.example.money.screens.home
+package com.example.money.screens.home.di
 
 import com.example.money.screens.home.data.HistoryMoneyRepositoryImpl
 import com.example.money.screens.home.domain.HistoryMoneyRepository

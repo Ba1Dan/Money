@@ -4,28 +4,35 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class BottomBarScreen(
+enum class BottomBarScreen(
     val route: String,
     val title: String,
-    val icon: ImageVector
+    val icon: ImageVector,
+    val unselectedIcon: ImageVector
 ) {
-    object Home : BottomBarScreen(
+    Home(
         route = "home",
         title = "Home",
-        icon = Icons.Default.Home
-    )
+        icon = Icons.Filled.Home,
+        unselectedIcon = Icons.Outlined.Home,
+    ),
 
-    object Profile : BottomBarScreen(
+    Profile(
         route = "profile",
         title = "Profile",
-        icon = Icons.Default.Person
-    )
+        icon = Icons.Filled.Person,
+        unselectedIcon = Icons.Outlined.Person,
+    ),
 
-    object Settings : BottomBarScreen(
+    Settings(
         route = "settings",
         title = "Settings",
-        icon = Icons.Default.Settings
+        icon = Icons.Filled.Settings,
+        unselectedIcon = Icons.Outlined.Settings,
     )
 }

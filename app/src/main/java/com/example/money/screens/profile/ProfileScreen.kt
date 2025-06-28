@@ -1,4 +1,4 @@
-package com.example.money.screens
+package com.example.money.screens.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
